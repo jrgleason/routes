@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "sourceMap": true,
+    "jsx": "react",
+    "noImplicitAny": false,
+    "suppressImplicitAnyIndexErrors": true
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/*.spec.ts"
+  ]
+}
