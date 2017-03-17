@@ -7,7 +7,8 @@ module.exports = function(){
   return {
     context: helpers.root(''),
     entry: {
-      app: './src/main'
+      app: './src/main',
+      styles: './src/app-global'
     },
     resolve: {
       extensions: [
