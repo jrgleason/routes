@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {Router, ActivatedRoute} from '@angular/router';
+import {Router} from '@angular/router';
 @Component({
   selector: 'jg-other',
   template: `
@@ -12,7 +12,6 @@ import {Router, ActivatedRoute} from '@angular/router';
 export class OtherComponent {
   constructor(private router: Router){}
   click = () => {
-    console.log("Clicked")
-    this.router.navigate(['/'])
+    this.router.navigate(['/viewport'])
   }
 }

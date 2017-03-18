@@ -7,6 +7,7 @@ import {Router} from '@angular/router';
       <h1> This is the header </h1>
     </div>
   `,
+  styles: [ require("./header.styles") ],
 })
 export class HeaderComponent {
   constructor(){

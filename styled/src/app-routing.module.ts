@@ -8,13 +8,13 @@ import {OtherModule} from "./other/other.module";
 const MyRouter = [
     {
         path: "",
+        redirectTo: "/viewport",
+        pathMatch: "full",
+    },
+    {
+        path: "",
         component: ContentComponent,
         children: [
-            {
-                path: "",
-                redirectTo: "/viewport",
-                pathMatch: "full",
-            },
             {
                 path: "viewport",
                 loadChildren: () => ViewportModule
