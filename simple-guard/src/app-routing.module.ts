@@ -5,31 +5,27 @@ import {NotFoundComponent} from "./not-found.component"
 import {ContentComponent} from "./content/content.component";
 import {ViewportModule} from "./viewport/viewport.module";
 import {OtherModule} from "./other/other.module";
+import {CanActivateIfChance} from "./common/simple.guard";
+import {InvalidComponent} from "./invalid.component";
 const MyRouter = [
-    {
-        path: "",
-        redirectTo: "/viewport",
-        pathMatch: "full",
-    },
     {
         path: "",
         component: ContentComponent,
         children: [
             {
                 path: "viewport",
-                loadChildren: () => ViewportModule
+                loadChildren: () => ViewportModule,
+                canActivate: [CanActivateIfChance]
             },
             {
                 path: "other",
-                loadChildren: () => OtherModule
+                loadChildren: () => OtherModule,
+                canActivate: [CanActivateIfChance]
             },
             {
                 path: "other/:number",
-                loadChildren: () => OtherModule
-            },
-            {
-                path: "**",
-                component: NotFoundComponent,
+                loadChildren: () => OtherModule,
+                canActivate: [CanActivateIfChance]
             },
             {
                 path: "",
@@ -37,7 +33,32 @@ const MyRouter = [
                 outlet: "header"
             }
         ]
-    }
+    },
+    {
+        path: "",
+        redirectTo: "/viewport",
+        pathMatch: "full",
+    },
+    {
+        path: "invalid",
+        component: ContentComponent,
+        children: [
+            {
+                path: "",
+                component: InvalidComponent,
+            },
+            {
+                path: "",
+                component: HeaderComponent,
+                outlet: "header"
+            }
+        ]
+
+    },
+    {
+        path: "**",
+        component: NotFoundComponent
+    },
 ];
 @NgModule({
     imports: [RouterModule.forRoot(MyRouter, {useHash: true})],
