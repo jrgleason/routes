@@ -36,6 +36,10 @@ const MyRouter = [
                 outlet: "header"
             }
         ]
+    },
+    {
+        path: "**",
+        component: NotFoundComponent
     }
 ];
 @NgModule({

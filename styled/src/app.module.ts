@@ -9,7 +9,7 @@ import {HeaderComponent} from "./header.component"
 import {NotFoundComponent} from "./not-found.component"
 import {ContentComponent} from "./content/content.component";
 @NgModule({
-  imports: [ BrowserModule, MyRoutingModule, ViewportModule, OtherModule ],
+  imports: [ BrowserModule, ViewportModule, OtherModule, MyRoutingModule ],
   declarations: [ App, HeaderComponent, NotFoundComponent, ContentComponent ],
   bootstrap: [ App ]
 })
