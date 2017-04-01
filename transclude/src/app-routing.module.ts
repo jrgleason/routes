@@ -4,7 +4,9 @@ import {HeaderComponent} from "./header.component"
 import {NotFoundComponent} from "./not-found.component"
 import {ContentComponent} from "./content/content.component";
 import {ViewportModule} from "./viewport/viewport.module";
-import {OtherModule} from "./other/other.module";
+// import {OtherModule} from "./other/other.module";
+import {CanActivateIfChance} from "./common/simple.guard";
+import {InvalidComponent} from "./invalid.component";
 const MyRouter = [
     {
         path: "",
@@ -17,19 +19,38 @@ const MyRouter = [
             },
             {
                 path: "viewport",
-                loadChildren: () => ViewportModule
+                loadChildren: () => ViewportModule,
+                canActivate: [CanActivateIfChance]
             },
             {
                 path: "other",
-                loadChildren: () => OtherModule
+                loadChildren: "./other/other.module#OtherModule",
+                canActivate: [CanActivateIfChance]
+                // loadChildren: () => OtherModule
             },
             {
                 path: "other/:number",
-                loadChildren: () => OtherModule
+                loadChildren: "./other/other.module#OtherModule",
+                canActivate: [CanActivateIfChance]
+                // loadChildren: () => OtherModule
             },
             {
-                path: "**",
-                component: NotFoundComponent,
+                path: "",
+                component: HeaderComponent,
+                outlet: "header"
+            },
+
+        ],
+
+    },
+
+    {
+        path: "invalid",
+        component: ContentComponent,
+        children: [
+            {
+                path: "",
+                component: InvalidComponent,
             },
             {
                 path: "",
@@ -37,7 +58,12 @@ const MyRouter = [
                 outlet: "header"
             }
         ]
-    }
+
+    },
+    {
+        path: "**",
+        component: NotFoundComponent
+    },
 ];
 @NgModule({
     imports: [RouterModule.forRoot(MyRouter, {useHash: true})],

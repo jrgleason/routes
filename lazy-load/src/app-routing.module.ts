@@ -13,6 +13,11 @@ const MyRouter = [
         component: ContentComponent,
         children: [
             {
+                path: "",
+                redirectTo: "/viewport",
+                pathMatch: "full",
+            },
+            {
                 path: "viewport",
                 loadChildren: () => ViewportModule,
                 canActivate: [CanActivateIfChance]
@@ -35,11 +40,6 @@ const MyRouter = [
                 outlet: "header"
             }
         ]
-    },
-    {
-        path: "",
-        redirectTo: "/viewport",
-        pathMatch: "full",
     },
     {
         path: "invalid",
