@@ -1,5 +1,4 @@
 import {RouterModule} from "@angular/router";
-import {NgModule} from "@angular/core";
 import {NumberComponent} from "../common/number.component"
 import {OtherComponent} from "./other.component"
 const OtherRouter = [
@@ -15,9 +14,4 @@ const OtherRouter = [
         ],
     }
 ];
-@NgModule({
-    imports: [RouterModule.forChild(OtherRouter)],
-})
-export class OtherRoutingModule {
-    constructor() {}
-}
+export const OtherRoutingModule = RouterModule.forChild(OtherRouter);

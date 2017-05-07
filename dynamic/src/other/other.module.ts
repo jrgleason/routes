@@ -9,11 +9,12 @@ import {LocalCommonModule} from "../common/local-common.module";
 })
 export class OtherModule {
   constructor(){
-    let total = 0;
-    for(let i = 0; i < 1000000; i++){
-      total = i + total;
-      console.log(total)
-    }
+    // TODO: Lets take our time
+    // let total = 0;
+    // for(let i = 0; i < 1000000; i++){
+    //   total = i + total;
+    //   console.log(total)
+    // }
     console.log("done");
   }
 }

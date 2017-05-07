@@ -3,6 +3,7 @@ import {NgModule} from '@angular/core'
 import {BrowserModule} from '@angular/platform-browser'
 import {App} from './app.component'
 import {ViewportModule} from "./viewport/viewport.module"
+import {provideRoutes} from '@angular/router';
 // import {OtherModule} from "./other/other.module"
 import {MyRoutingModule} from "./app-routing.module"
 import {HeaderComponent} from "./header.component"
